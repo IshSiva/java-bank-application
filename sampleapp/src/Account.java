@@ -4,7 +4,7 @@
  * The Account class contains the member functions and class variables which are
  * instantiated in the Bank class
  */
-import javax.swing.*;
+
 public class Account {
     /** Declaration of the class variables*/
     private final String name; //store the name of the account holder
@@ -29,24 +29,52 @@ public class Account {
         return count;
     }
       
-    /** To deduct amount on withdrawal Raises a warning if there is 
-        insufficient balance*/           
-    public void withdraw (double amt)
+    /**
+     * @param acc: has the account number passed from main()
+     * @param b: contains the array of Account objects created
+     * @param amt: amount to be deposited or withdrawn
+     */
+               
+    public void withdraw (int acc, Account b[], double amt)
     {
-        if(amt < balance)
-            balance -= amt;
-        else
-        {    JOptionPane.showMessageDialog(null, "Insufficient Balance");//not working
-            //System.out.println("Sufficient fund is not available in the account");
-            
-        }    
+        int i=0;
+        for(i=0; i<Account.getCount();i++)
+        {
+            if(b[i].acc_num == acc )
+            {    
+                if(amt < balance)
+                {
+                    b[i].balance -= amt;
+                    b[i].dispDetails();
+                    return;
+                }
+                
+                else
+                {    
+                    System.out.println("Sufficient fund is not available in the account");
+
+                }
+            }
+        }
+        System.out.println("Account number not found");
     }
 
     
     //credit an amount to the account
-    public void credit (double amt)
+    public void credit (int acc, Account b[], double amt)
     {
-    	balance += amt;
+        int i=0;
+        for(i=0; i<Account.getCount();i++)
+        {
+            if(b[i].acc_num == acc )
+            {    
+                b[i].balance += amt;
+                b[i].dispDetails();
+                return;
+            }
+        }
+        System.out.println("Account number not found");
+    	
     }
 
     //display the details of the account
