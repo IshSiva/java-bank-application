@@ -13,7 +13,7 @@ public class SilverCustomer extends Customer{
     
     public SilverCustomer(String na, double bal) {
         super(na, bal);
-        int_rate = 0.10;
+        int_rate = 0.05; //interest rate
         System.out.println("\nYou are a silver customer.");
     }
     
