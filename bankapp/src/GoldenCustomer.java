@@ -14,7 +14,7 @@ public class GoldenCustomer extends Customer{
     GoldenCustomer(String na, double bal)
     {
         super(na, bal);
-        int_rate = 0.05;
+        int_rate = 0.10; //interest rate
         System.out.println("\nYou are a Gold customer. You can enjoy special privileges");
     
     }
