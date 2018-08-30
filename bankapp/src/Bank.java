@@ -39,6 +39,9 @@ public class Bank {
                 name = inp.nextLine();
                 System.out.println("Enter the balance: ");
                 bal = inp.nextDouble();
+		/*If the balance is greater than 1,00,000 then the customer is a golden customer
+                  Else the customer is a silver customer
+                **/
                 if(bal>=100000)
                     cust_details[i] = new GoldenCustomer(name, bal);
                 else
